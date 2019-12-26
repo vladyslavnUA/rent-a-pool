@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='/pools/{{pool._id}}'>
+<div class='row'>
+    <div class='col-sm-6 col-sm-offset-3'>
+		<form method='POST' action='/pools/{{pool._id}}'>
+			<input type='hidden' name='_method' value='PUT'/>
+		    {% include "partials/pools_form.html" %}
+		    <div class="form-group">
+		    </div>
+		</form>
+	</div>
+</form>
+</div>
+
+<div class="row">
+	<div class='col-sm-6 col-sm-offset-3'>
+		<a href="/pools/{{pool._id}}"><button class="btn btn-danger">Cancel</button></a>
+	</div>
+</div>
+{% endblock %}
