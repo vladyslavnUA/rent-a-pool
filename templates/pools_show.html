@@ -15,16 +15,24 @@
 			<img width="300"  height="300" src="/static/{{ pool.brand }}.png">
 		</div></div>
 
+		<!-- location -->
+		<strong>Location (address given upon reservation)</strong>
+		<p>{{ pool.location }}</p>
+
 		<!-- Description of the item -->
 		<p>{{ pool.description }}</p>
 
-		<!-- item Price -->
+		<!-- pool price -->
+		<strong>Price /hr</strong>
 		<p>${{ pool.price }}</p>
 		
-		<!-- item brand -->
-		<p>{{ pool.brand }} </p>
+		<!-- pool size -->
+		<strong>Pool Size (in feet)</strong>
+		<p>{{ pool.size }} </p>
 
-		<p><a href="/pools/{{ pool._id }}/edit"><button  class="btn btn-primary">Edit Item</button></a></p>
+		<p><a href="/pools/{{ pool._id }}/reserve"><button class="btn btn-primary">Reserve Pool</button> </a></p>
+
+		<p><a href="/pools/{{ pool._id }}/edit"><button class="btn btn-primary">Edit Item</button></a></p>
 		<p><form method="POST" action="/pools/{{pool._id}}/delete">
 			<input type='hidden' name='_method' value='DELETE'>
 
