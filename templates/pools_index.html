@@ -5,7 +5,7 @@
     {% for pool in pools %}
 		<div class="col-md-3">
 	        <h2><a href="/pools/{{pool._id}}">{{ pool.title }}</h2>
- 	            <img width="240" height="240" src="/static/{{ pool.brand }}.png">
+ 	            <img width="240" height="240" src="{{ pool.image }}">
 			<small>{{ pool.description }}</small>
 			 <p>${{ pool.price }}</p>
 			</a>

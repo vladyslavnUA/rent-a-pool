@@ -21,6 +21,10 @@ def pools_index():
 	#this will show the type of pants we have
 	return render_template("pools_index.html", pools=pools.find())
 
+@app.route("/about")
+def about():
+	return render_template("about.html")
+
 @app.route("/pools", methods=["POST"])
 def pools_submit():
 	pool = {
@@ -42,6 +46,11 @@ def pools_show(pool_id):
 def pools_new():
 	return render_template("pools_new.html", pool={}, title ="New Item")
 
+@app.route("/pools/reserve")
+def pools_reserve():
+	return render_template("pools_reserve.html", pool={}, title ="New Item")
+
+
 @app.route("/pools/<pool_id>/edit")
 def pools_edit(pool_id):
 	pool = pools.find_one({"_id" : ObjectId(pool_id)})
@@ -53,7 +62,7 @@ def pools_update(pool_id):
 		"pool_name": request.form.get("pool_name"),
 		"description": request.form.get("description"),
 		"price": request.form.get("price"),
-        	"brand": request.form.get("brand")
+        	"picture": request.form.get("picture")
 	}
 
 	pools.update_one( {"_id" : ObjectId(pool_id)}, {"$set" : updated_pool})
