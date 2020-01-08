@@ -42,6 +42,10 @@ def pools_show(pool_id):
 	pool = pools.find_one({'_id' : ObjectId(pool_id)})
 	return render_template("pools_show.html", pool = pool)
 
+@app.route("pools/login")
+def login():
+	return render_template("login.html")
+
 @app.route("/pools/new")
 def pools_new():
 	return render_template("pools_new.html", pool={}, title ="New Item")
@@ -49,7 +53,6 @@ def pools_new():
 @app.route("/pools/reserve")
 def pools_reserve():
 	return render_template("pools_reserve.html", pool={}, title ="New Item")
-
 
 @app.route("/pools/<pool_id>/edit")
 def pools_edit(pool_id):
