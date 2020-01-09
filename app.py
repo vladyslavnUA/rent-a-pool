@@ -42,7 +42,7 @@ def pools_show(pool_id):
 	pool = pools.find_one({'_id' : ObjectId(pool_id)})
 	return render_template("pools_show.html", pool = pool)
 
-@app.route("pools/login")
+@app.route("/pools/login")
 def login():
 	return render_template("login.html")
 

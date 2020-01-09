@@ -4,8 +4,13 @@
 <head>
   <meta charset='utf-8'>
   <title>rent-a-pool</title>
+  <link rel="stylesheet" href="/templates/base.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="text/css" href="templates/base.css">
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-custom.min.js"></script>
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="js/additional-methods.min.js"></script>
+
   <!-- <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'> -->
 </head>
 <body>
@@ -17,29 +22,125 @@
     {% endblock %}
   </div>
   <div class="break">
-    <br>
-    <br>
-    <br>
-    <style>
+    <!-- <style>
       .break {
         padding-top: 10em;
         padding-bottom: 10em;
         /* line-height: 4; */
       }
+    </style> -->
+  </div>
+  <div>
+    <div class="content">BLEND</div>
+    <section class="one">
+      <div class="wrapper"></div>
+    </section>
+    <section class="two">
+      <div class="wrapper"></div>
+    </section>
+    <section class="three">
+      <div class="wrapper"></div>
+    </section>
+    <style>
+      .content, .wrapper:before {
+        box-sizing: border-box;
+        display: block;
+        font-size: 4em;
+        padding: 1em;
+        width: 6em;
+        height: 3em;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate3d(-50%, -50%, 0);
+                transform: translate3d(-50%, -50%, 0);
+      }
+
+      .content {
+        font-weight: bold;
+        text-align: center;
+        z-index: 1000;
+        background: #fff;
+        color: #000;
+        mix-blend-mode: lighten;
+      }
+
+      section {
+        background-repeat: no-repeat;
+        background-size: cover;
+        isolation: isolate;
+        position: relative;
+        height: 100vh;
+        padding: 1em;
+      }
+
+      .wrapper {
+        clip: rect(auto auto auto auto);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+      .wrapper:before {
+        content: " ";
+        padding: 2em 3.5em;
+        mix-blend-mode: darken;
+      }
+
+      .one {
+        background-image: url(https://source.unsplash.com/1920x1080?nature);
+      }
+      .one .wrapper:before {
+        background: red;
+      }
+
+      .two {
+        background-image: url(https://source.unsplash.com/1920x1080?landscape);
+      }
+      .two .wrapper:before {
+        background: #faaa54;
+        mix-blend-mode: difference;
+      }
+
+      .three {
+        background-image: url(https://source.unsplash.com/1920x1080?portrait);
+      }
+      .three .wrapper:before {
+        background: #6c320a;
+        mix-blend-mode: screen;
+      }
+
+      .four {
+        background-image: url(https://source.unsplash.com/1920x1080?stars);
+      }
+      .four .wrapper:before {
+        background: #e4135d;
+      }
+    
     </style>
   </div>
   <div class="graphic background-img">
-    <img src="static/ocean.jpg" class="imgg">
+    <!-- <img src="/static/pool2.jpg" class="imgg"> -->
+    <!-- <img src="static/ocean.jpg" class="imgg"> -->
+    <!-- <img src="/static/poool.jpg" class="imgg"> -->
     <style>
+      .background-img {
+        /* width: 1000px;
+        height: 500px; */
+        background-image: url('/static/pool2.jpg')
+      }
       .imgg {
-        width: 1650px;
-        height: 500px;
+        width: 100%;
+        height: 100%;
         /* object-fit: contain; */
         /* border: 10px; */
-        position:fixed;
-        right:0;
-        bottom:0;
+        /* position:fixed; */
+        /* right:0;
+        bottom:0; */
         /* margin:0; */
+        z-index: 0;
+        /* opacity: 4; */
       }
       /* .break {
         margin-top: auto;
@@ -49,9 +150,7 @@
     </style>
   </div>
   <div class="drops">
-    <style type="text/scss">
-      
-    </style>
+      <!-- <img src="/static/oo.gif"> -->
   </div>
 
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>

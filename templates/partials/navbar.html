@@ -1,10 +1,18 @@
-<nav class='navbar navbar-default'>
+<link rel="stylesheet" href="/templates/navbar.css">
+<nav class='navbar navbar-default scrolling-navbar'>
     <div class='container-fluid'>
         <div class='navbar-header'>
             <a class='navbar-brand' href='/'>
-                rent-a-pool
+                <img src="/static/logo.png">
+                <style>
+                img {
+                    height: 150px;
+                    width: 150px;
+                }
+                </style>
             </a>
         </div>
+        <div class="view" style="background-image: url('/static/pool2.jpg'); background-size: cover; background-position: center center;"></div>
         <!-- <div class="container-fluid justify-content-end"> -->
         <div class='pull-right'>
             <a href="/about" class='btn btn-default btn-outline-success navbar-btn'>about us</a>
@@ -16,7 +24,7 @@
             <a href='/pools/new' class='btn btn-default btn-outline-success navbar-btn'> List a Pool </a>
         </div>
         <div class='pull-right'>
-            <a href='/pools/login' class='btn btn-default btn-outline-success navbar-btn'>Login</a>
+            <a href='/' class='btn btn-default btn-outline-success navbar-btn'>Login</a>
         </div>
         <!-- </div> -->
     </div>
