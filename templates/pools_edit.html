@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method='POST' action='/pools/{{pool._id}}'>
 <div class='row'>
     <div class='col-sm-6 col-sm-offset-3'>
-		<form method='POST' action='/pools/{{pool._id}}'>
-			<input type='hidden' name='_method' value='PUT'/>
+		<form method='POST' action='/'>
+			<!-- <input name='_method' value='PUT'/> -->
 		    {% include "partials/pools_form.html" %}
 		    <div class="form-group">
 		    </div>
@@ -15,17 +14,18 @@
 </div>
 <style>
 .break {
-	margin-top: 150px;
+	margin-top: 175px;
 }
 .row {
-	margin-left: 10px;
+	margin-right: 50px;
+	margin-left: 50px;
 	display: flex;
 	align-items: center;
 }
 </style>
 <div class="row">
 	<div class='col-sm-6 col-sm-offset-3'>
-		<a href="/pools/{{pool._id}}"><button class="btn btn-danger">Cancel</button></a>
+		<a href="/"><button class="btn btn-danger">Cancel</button></a>
 	</div>
 </div>
 {% endblock %}
