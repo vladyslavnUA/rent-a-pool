@@ -34,7 +34,7 @@ def pools_submit():
 		"price": request.form.get("price")
 	}
 	pool_id = pools.insert_one(pool).inserted_id
-	print(pool_id)
+	print(f"added pool id: {pool_id}")
 	return redirect(url_for("pools_show", pool_id = pool_id))
 
 @app.route("/reserve/<pool_id>")
@@ -65,7 +65,7 @@ def pools_update(pool_id):
 		"pool_name": request.form.get("pool_name"),
 		"description": request.form.get("description"),
 		"price": request.form.get("price"),
-        	"picture": request.form.get("picture")
+        "picture": request.form.get("picture")
 	}
 
 	pools.update_one( {"_id" : ObjectId(pool_id)}, {"$set" : updated_pool})
