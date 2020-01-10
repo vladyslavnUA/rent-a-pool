@@ -1,4 +1,4 @@
-<form method='POST' action='/reserve'>
+<form method='POST' action='/'>
     <fieldset>
     <legend>{{ pool.title }}</legend>
     <!-- pools title-->
@@ -8,12 +8,12 @@
     </p> -->
     <p>
         <label for='title'>Listing Title</label><br>
-        <input id="title" type='text' name='title' value='{{ pool.title }}' placeholder="Luxury pool" required/>
+        <input id="title" type='text' name='title' value='{{ pool.title }}' placeholder="luxury pool" required/>
     </p>
     <!-- Location -->
     <p>
         <label for='location'>Location</label><br>
-        <input id="location" type='text' name='location' value='{{ pool.location }}' placeholder="San Francisco" required/>
+        <input id="location" type='text' name='location' value='{{ pool.location }}' placeholder="san francisco" required/>
     </p>
 
     <!-- Size -->
@@ -66,12 +66,7 @@
     <p>
         <label for='image'>Image</label><br>
         <p>select an image to upload</p>
-        <input type="file" name="image" >
-    </p>
-
-    <p><input type="file" accept="image/*" id="image"></p>
-
-    
+        <input type="file" accept="image/*" name="picture" id="picture"></p>    
 
     </fieldset>
 
