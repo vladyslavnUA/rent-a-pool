@@ -26,7 +26,7 @@ def pools_index():
 def about():
 	return render_template("about.html")
 
-@app.route("/pools/reserve", methods=["POST", "GET"])
+@app.route("/pools/<pool_id>/reserve", methods=["POST", "GET"])
 def pools_submit():
 	pool = {
 		"title": request.form.get("title"),
