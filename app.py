@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 import os
 
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/pools')
+host = os.environ.get('MONGODB_URI', 'mongodb://heroku_rkfkkcbg:u7ej95kepo531llkpkjttvs10l@ds361768.mlab.com:61768/heroku_rkfkkcbg')
 client = MongoClient(host=host)
 db = client.get_default_database()
 pools = db.pools
@@ -26,7 +26,7 @@ def pools_index():
 def about():
 	return render_template("about.html")
 
-@app.route("/pools/<pool_id>/reserve", methods=["POST", "GET"])
+@app.route("/pools", methods=["POST"])
 def pools_submit():
 	pool = {
 		"title": request.form.get("title"),
@@ -43,7 +43,7 @@ def pools_submit():
 @app.route("/pools/<pool_id>")
 def pools_show(pool_id):
 	pool = pools.find_one({'_id' : ObjectId(pool_id)})
-	return render_template("pools_show.html", pool = pool)
+	return render_template("pools_show.html", pool=pool, pool_id = pool_id)
 
 @app.route("/pools/login")
 def login():
@@ -51,7 +51,7 @@ def login():
 
 @app.route("/pools/new")
 def pools_new():
-	return render_template("pools_new.html", pool={})
+	return render_template("pools_new.html", pool={}, title="new item")
 
 @app.route("/pools/reserve")
 def pools_reserve():
@@ -60,9 +60,9 @@ def pools_reserve():
 @app.route("/pools/<pool_id>/edit")
 def pools_edit(pool_id):
 	pool = pools.find_one({"_id" : ObjectId(pool_id)})
-	return render_template("pools_edit.html", pool = pool)
+	return render_template("pools_edit.html", pool = pool, title="edit item")
 
-@app.route("/pools/<pool_id>/update", methods = ['POST'])
+@app.route("/pools/<pool_id>", methods = ['POST'])
 def pools_update(pool_id):
 	updated_pool = {
 		"title": request.form.get("title"),
@@ -71,7 +71,6 @@ def pools_update(pool_id):
 		"price": request.form.get("price"),
 		"guests": request.form.get("guests")
 	}
-
 	pools.update_one( {"_id" : ObjectId(pool_id)}, {"$set" : updated_pool})
 	return redirect(url_for("pools_show", pool_id = pool_id))
 
