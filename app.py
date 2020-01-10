@@ -8,6 +8,7 @@ client = MongoClient(host=host)
 db = client.get_default_database()
 pools = db.pools
 
+#heroku doesnt know library
 app = Flask(__name__)
 
 # @app.route("/login")
