@@ -1,3 +1,4 @@
+![GitHub Logo](/static/logo.png)
 ## About
 
 Welcome to **rent-a-pool**, your airbnb for hourly pool rentals.
