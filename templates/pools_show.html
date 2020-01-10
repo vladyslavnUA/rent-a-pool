@@ -4,7 +4,7 @@
 <div>
     <style>
       .break {
-		margin-top: 175px;
+		margin-top: 12%;
 	  }
 	  .row {
 		margin-top: 10px;
@@ -14,6 +14,9 @@
 	  .card {
 		  width:250px;
 		  height:250px;
+	  }
+	  * {
+		color: orange;
 	  }
     </style>
   </div>
@@ -51,7 +54,7 @@
 
 		<p><a href="/pools/{{ pool._id }}/edit"><button class="btn btn-primary">Edit Item</button></a></p>
 		<p><form method="POST" action="/pools/{{ pool._id }}/delete">
-			<input type='submit' name='_method' value='DELETE'>
+			<input type='submit' name='_method' value='DELETE' style="background-color:red;color:white;">
 		</form></p>
 	</div>
 </div>
