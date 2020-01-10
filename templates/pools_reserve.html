@@ -2,20 +2,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- <base href="http://demos.telerik.com/kendo-ui/calendar/index"> -->
     <style>html { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }</style>
     <title>calendar</title>
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common-material.min.css" />
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.material.min.css" />
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.material.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
-    <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
 </head>
 <body>
-    {% include "partials/navbar.html" %}
+    {% include 'partials/navbar.html' %}
+            
+    <div class='container'>
+        {% block content %}
+        <div class="row">
+                {% for pool in pools %}
+                    <div class="col-md-3">
+                        <br>
+                        <h2><a href="/pools/{{pool._id}}">{{ pool.title }}</h2>
+                            <img width="240" height="240" src="{{ pool.image }}">
+                        <small>{{ pool.description }}</small>
+                        <p>${{ pool.price }}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endblock %}
+    </div>
+
+
+    <style>
+        .container {
+            margin-top: 10%;
+        }
+        .example {
+            align-content: center;
+        }
+        * {
+            font-family: 'Seymour One', sans-serif;
+        }
+    </style>
     <div class="container">
         <h2 style="text-align:center;">reserve a pool</h2>
     </div>

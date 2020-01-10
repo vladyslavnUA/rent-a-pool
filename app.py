@@ -18,26 +18,27 @@ app = Flask(__name__)
 
 @app.route("/")
 def pools_index():
-	#this will show the type of pants we have
-	return render_template("pools_index.html", pools=pools.find())
+	#this will show the type of pools we have
+		#this will show the type of pants we have
+	return render_template("base.html", pools=pools.find())
+	#return render_template("pools_index.html", pools=pools.find())
 
 @app.route("/about")
 def about():
 	return render_template("about.html")
 
-@app.route("/pools", methods=["POST"])
+@app.route("/pools/reserve", methods=["POST"])
 def pools_submit():
 	pool = {
 		"pool_name": request.form.get("pool_name"),
 		"description": request.form.get("description"),
-		"price": request.form.get("price"),
-        	"brand": request.form.get("brand")
+		"price": request.form.get("price")
 	}
 	pool_id = pools.insert_one(pool).inserted_id
 	print(pool_id)
 	return redirect(url_for("pools_show", pool_id = pool_id))
 
-@app.route("/pools/<pool_id>")
+@app.route("/reserve/<pool_id>")
 def pools_show(pool_id):
 	pool = pools.find_one({'_id' : ObjectId(pool_id)})
 	return render_template("pools_show.html", pool = pool)
@@ -48,16 +49,16 @@ def login():
 
 @app.route("/pools/new")
 def pools_new():
-	return render_template("pools_new.html", pool={}, title ="New Item")
+	return render_template("pools_new.html", pool={})
 
 @app.route("/pools/reserve")
 def pools_reserve():
-	return render_template("pools_reserve.html", pool={}, title ="New Item")
+	return render_template("pools_reserve.html", pool={})
 
 @app.route("/pools/<pool_id>/edit")
 def pools_edit(pool_id):
 	pool = pools.find_one({"_id" : ObjectId(pool_id)})
-	return render_template("pools_edit.html", pool = pool, title = "Edit Item")
+	return render_template("pools_edit.html", pool = pool)
 
 @app.route("/pools/<pool_id>", methods = ['POST'])
 def pools_update(pool_id):

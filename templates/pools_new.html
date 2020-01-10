@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="break"></div>
 <div class='row'>
     <div class='col-sm-6 col-sm-offset-3'>
-		<form method='POST' action='/pools'>
-		    {% include "partials/pools_form.html" %}
+		<form method='POST' action='/pools/reserve'>
+		    {% include 'partials/pools_form.html' %}
 		</form>
 	</div>
 </div>
-
+<style>
+	.break {
+        margin-top: 150px;
+    }
+	.row {
+        margin-left: 10px;
+		align-content: right;
+    }
+</style>
 <div class="row">
 	<div class='col-sm-6 col-sm-offset-3'>
 		<a href="/"><button class="btn btn-primary">Cancel</button></a>

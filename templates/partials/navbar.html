@@ -1,18 +1,20 @@
-<link rel="stylesheet" href="/templates/navbar.css">
-<nav class='navbar navbar-default scrolling-navbar'>
+<nav class='navbar navbar-default fixed-top scrolling-navbar'>
     <div class='container-fluid'>
         <div class='navbar-header'>
             <a class='navbar-brand' href='/'>
-                <img src="/static/logo.png">
+                <img src="/static/logo.png" class="bg-img">
                 <style>
-                img {
+                .bg-img {
                     height: 150px;
                     width: 150px;
+                }
+                .navbar {
+                    border-top: 0;
                 }
                 </style>
             </a>
         </div>
-        <div class="view" style="background-image: url('/static/pool2.jpg'); background-size: cover; background-position: center center;"></div>
+        <!-- <div class="view" style="background-image: url('/static/vilaa.jpeg'); background-size: cover; background-position: center center;"></div> -->
         <!-- <div class="container-fluid justify-content-end"> -->
         <div class='pull-right'>
             <a href="/about" class='btn btn-default btn-outline-success navbar-btn'>about us</a>
