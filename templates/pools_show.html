@@ -4,28 +4,37 @@
 <div>
     <style>
       .break {
-        margin-top: 150px;
-      }
+		margin-top: 175px;
+	  }
+	  .row {
+		margin-top: 10px;
+		margin-right: 50px;
+		margin-left: 50px;
+	  }
+	  .card {
+		  width:250px;
+		  height:250px;
+	  }
     </style>
   </div>
-<a href='/'>Back to Home</a>
 
 <div class="row">
 	<div class="col-sm-6 col-sm-offset-3">
 
-		<!-- pool Name -->
+		<!-- pool title -->
 		<h1>{{ pool.title }}</h1>
 
 		<!-- pool Picture -->
 		<div class="card"><div class="card-body">
-			<img width="300"  height="300" src="{{ pool.uimg }}.png">
+			<img width="200"  height="200" src="{{ pool.picture }}">
 		</div></div>
-
+		<br>
 		<!-- location -->
 		<strong>Location (address given upon reservation)</strong>
-		<p>{{ pool.location }}</p>
+		<!-- <p>{{ pool.location }}</p> -->
 
 		<!-- Description of the item -->
+		<strong>Description</strong>
 		<p>{{ pool.description }}</p>
 
 		<!-- pool price -->
@@ -36,13 +45,13 @@
 		<strong>Pool Size (in feet)</strong>
 		<p>{{ pool.size }} </p>
 
+		<strong># of guests: </strong><p>{{ pool.guests }}</p>
+
 		<p><a href="/pools/{{ pool._id }}/reserve"><button class="btn btn-primary">Reserve Pool</button> </a></p>
 
 		<p><a href="/pools/{{ pool._id }}/edit"><button class="btn btn-primary">Edit Item</button></a></p>
-		<p><form method="POST" action="/pools/{{pool._id}}/delete">
-			<input type='hidden' name='_method' value='DELETE'>
-
-			<button class="btn btn-primary" type="submit">Delete Item</button>
+		<p><form method="POST" action="/pools/{{ pool._id }}/delete">
+			<input type='submit' name='_method' value='DELETE'>
 		</form></p>
 	</div>
 </div>
