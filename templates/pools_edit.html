@@ -3,7 +3,7 @@
 {% block content %}
 <div class='row'>
     <div class='col-sm-6 col-sm-offset-3'>
-		<form method='POST' action='/'>
+		<form method='POST' action='/pools/{{ pool._id }}'>
 			<!-- <input name='_method' value='PUT'/> -->
 		    {% include "partials/pools_form.html" %}
 		    <div class="form-group">
@@ -28,7 +28,7 @@
 </style>
 <div class="row">
 	<div class='col-sm-6 col-sm-offset-3'>
-		<a href="/"><button class="btn btn-danger">Cancel</button></a>
+		<a href="/pools/{{ pool._id }}"><button class="btn btn-danger">Cancel</button></a>
 	</div>
 </div>
 {% endblock %}
