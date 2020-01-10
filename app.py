@@ -8,7 +8,6 @@ client = MongoClient(host=host)
 db = client.get_default_database()
 pools = db.pools
 
-
 app = Flask(__name__)
 
 # @app.route("/login")
@@ -77,6 +76,10 @@ def pools_delete(pool_id):
 	pools.delete_one({"_id" : ObjectId(pool_id)})
 	return redirect(url_for("pools_index"))
 
+app.config['DROPZONE_UPLOAD_MULTIPLE'] = True
+app.config['DROPZONE_ALLOWED_FILE_CUSTOM'] = True
+app.config['DROPZONE_ALLOWED_FILE_TYPE'] = 'image/*'
+app.config['DROPZONE_REDIRECT_VIEW'] = 'results'
 
 if __name__ == "__main__":
 	app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
