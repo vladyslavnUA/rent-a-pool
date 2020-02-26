@@ -1,7 +1,7 @@
 ![GitHub Logo](/static/logo.png)
 ## About
 
-Welcome to **rent-a-pool**, your airbnb for hourly pool rentals.
+Welcome to [**rent-a-pool**](https://rent-a-pool.herokuapp.com/), your airbnb for hourly pool rentals.
 
 ## Tech/Framework Used
 <b>Built with</b>
