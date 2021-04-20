@@ -55,7 +55,7 @@ Pillow==6.2.0
 pipenv==2018.11.26
 pluggy==0.13.1
 protobuf==3.11.1
-py==1.8.0
+py==1.10.0
 pyasn1==0.4.7
 pyasn1-modules==0.2.6
 pycryptodome==3.6.6
